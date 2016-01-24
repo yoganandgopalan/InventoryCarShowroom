@@ -1,0 +1,67 @@
+{
+  "name": "jacopo/laravel-authentication-acl",
+  "description": "Laravel authentication and ACL package with a cool admin panel",
+  "keywords": [
+    "acl",
+    "authentication",
+    "signup",
+    "admin panel",
+    "profile",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "jacopo",
+      "email": "jacopo@jacopobeschi.com",
+      "homepage": "http://www.jacopobeschi.com"
+    }
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "laravel/framework": "5.0.*|5.1.*",
+    "illuminate/html": "5.0.*",
+    "intervention/image": "2.*",
+    "jacopo/authentication-sentry": "1.0.*",
+    "gregwar/captcha": "1.0.11"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "phpspec/phpspec": "~2.1",
+    "mockery/mockery": "0.9.*",
+    "fzaninotto/faker": "1.4.*",
+    "doctrine/dbal": "2.5.*"
+
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "LaravelAcl\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/unit"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan clear-compiled",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "php artisan clear-compiled",
+      "php artisan optimize"
+    ],
+    "post-create-project-cmd": [
+      "php -r \"copy('.env.example', '.env');\"",
+      "php artisan key:generate"
+    ]
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "preferred-install": "dist"
+  }
+}
